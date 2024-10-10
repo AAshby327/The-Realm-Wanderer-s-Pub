@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=4 uid="uid://cwqf7qitru50i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_chu0q"]
+resource_name = "rock"
+albedo_color = Color(0.959256, 0.746862, 0.656282, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_es3wc"]
+resource_name = "rockDark"
+albedo_color = Color(0.853244, 0.644164, 0.549494, 1)
+metallic = 1.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_j337l"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 0.5, 2),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("AgAAAAEABQADAAQAAgAFAAYABgAHAAIACQAIAAMAAwABAAkAAQADAAUABQACAAEA"),
+"name": "rock",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 10,
+"vertex_data": PackedByteArray("//////9fAAD//////78AAP//AAD/PwAAAAD///+/AAAAAP///18AAAAAAAD/PwAAAAAAAAAAAAD//wAAAAAAAAAA/////wAA////////AAA=")
+}, {
+"aabb": AABB(-0.5, 0, -0.5, 1, 0.5, 0.75),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AwACAAQABAAFAAMABgAAAAEAAQAHAAYA"),
+"name": "rockDark",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("////////AAD//wAAqqoAAAAA/////wAAAAAAAKqqAAAAAP//qqoAAAAAAAAAAAAA/////6qqAAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7dj3h"]
+resource_name = "terrain_rampLarge_detailed_Mesh terrain_rampLarge_detailed"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 0.5, 2),
+"attribute_data": PackedByteArray("/58sWP//LFj/fyGCAAAsWP9fLFj/fyGC/z8hgv8/LFj/vyGC/78sWP8/////PwrW/7////+/Ctb/v1Ak/78hgv8/UCT/PyGC"),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("AgAAAAEABQADAAQACAAGAAcABwAJAAgADAAKAAsACwANAAwAEAAOAA8ADwARABAA"),
+"material": SubResource("StandardMaterial3D_chu0q"),
+"name": "rock",
+"primitive": 3,
+"uv_scale": Vector4(78.7402, 120.11, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("//////9f/7///////7//v///AAD/P/+/AAD///+//78AAP///1//vwAAAAD/P/+/AAAAAP8//78AAAAAAAD/v///AAD/P/+///8AAAAA/78AAP//////vwAA////v/+//////////7///////7//vwAA////v///AAAAAP8//////////7//////AAD/P////3////9/////f////38AAP9/AAD/fwAA////f////3////9/////f////3////9/////f////3//fxrP/38az/9/Gs//fxrP")
+}, {
+"aabb": AABB(-0.5, 0, -0.5, 1, 0.5, 0.75),
+"attribute_data": PackedByteArray("/78AAP9/2Yb/PwAA/3/Zhv9/AAD//9mG/38AAAAA2YY="),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray("AwACAAQABAAFAAMABgAAAAEAAQAHAAYA"),
+"material": SubResource("StandardMaterial3D_es3wc"),
+"name": "rockDark",
+"primitive": 3,
+"uv_scale": Vector4(39.3701, 37.3701, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////////7///wAAqqr/vwAA//////+/AAAAAKqq/78AAP//qqr/vwAAAAAAAP+//////6qq/7///wAAAAD/v/9/////f////38AAP9/AAD/fwAA/38AAP9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_j337l")
+
+[node name="terrain_rampLarge_detailed" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_7dj3h")
+skeleton = NodePath("")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdhrdbiormxrv"]
+
+[ext_resource type="PackedScene" uid="uid://3mwmagjs13f8" path="res://Entities/prop.tscn" id="1_ok55p"]
+[ext_resource type="Script" path="res://Entities/toy.gd" id="2_4oy1n"]
+
+[node name="Toy" instance=ExtResource("1_ok55p")]
+script = ExtResource("2_4oy1n")
+highlight_color = Color(1, 1, 1, 1)
+select_color = Color(0, 0, 1, 1)

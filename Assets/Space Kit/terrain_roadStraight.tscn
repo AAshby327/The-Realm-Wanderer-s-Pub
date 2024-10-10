@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=4 uid="uid://bdg4i5jn3s5m6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tk2e6"]
+resource_name = "rock"
+albedo_color = Color(0.959256, 0.746862, 0.656282, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1yj6g"]
+resource_name = "rockTrack"
+albedo_color = Color(0.99166, 0.786361, 0.70065, 1)
+metallic = 1.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_evugd"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1),
+"format": 34896613377,
+"index_count": 18,
+"index_data": PackedByteArray("AgAAAAEAAQADAAIABgAEAAUABQAHAAYACgAIAAkACQALAAoA"),
+"name": "rock",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("/18AAP//AAD/XwAAAAAAAP+fAAD//wAA/58AAAAAAAAAAAAA//8AAAAAAAAAAAAA/z8AAP//AAD/PwAAAAAAAP+/AAD//wAA/78AAAAAAAD//wAA//8AAP//AAAAAAAA")
+}, {
+"aabb": AABB(-0.25, 0, -0.5, 0.5, 1e-05, 1),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("BgACAAMAAwAHAAYAAAAEAAUABQABAAAA"),
+"name": "rockTrack",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/z8AAP//AAD/PwAAAAAAAP+/AAD//wAA/78AAAAAAAAAAAAA//8AAAAAAAAAAAAA//8AAP//AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0u64l"]
+resource_name = "terrain_roadStraight_Mesh terrain_roadStraight"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1),
+"attribute_data": PackedByteArray("/1////9fYAz/n////59gDAAA//8AAGAM/z////8/YAz/v////79gDP///////2AM"),
+"format": 34896613399,
+"index_count": 18,
+"index_data": PackedByteArray("AgAAAAEAAQADAAIABgAEAAUABQAHAAYACgAIAAkACQALAAoA"),
+"material": SubResource("StandardMaterial3D_tk2e6"),
+"name": "rock",
+"primitive": 3,
+"uv_scale": Vector4(39.3701, 41.3701, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("/18AAP///7//XwAAAAD/v/+fAAD///+//58AAAAA/78AAAAA////vwAAAAAAAP+//z8AAP///7//PwAAAAD/v/+/AAD///+//78AAAAA/7///wAA////v///AAAAAP+/////f////3////9/////f////3////9/////f////3////9/////f////3////9/")
+}, {
+"aabb": AABB(-0.25, 0, -0.5, 0.5, 1e-05, 1),
+"attribute_data": PackedByteArray("/z////8/YAz/v////79gDAAA//8AAGAM////////YAw="),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray("BgACAAMAAwAHAAYAAAAEAAUABQABAAAA"),
+"material": SubResource("StandardMaterial3D_1yj6g"),
+"name": "rockTrack",
+"primitive": 3,
+"uv_scale": Vector4(19.685, 41.3701, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/z8AAP///7//PwAAAAD/v/+/AAD///+//78AAAAA/78AAAAA////vwAAAAAAAP+///8AAP///7///wAAAAD/v////3////9/////f////3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_evugd")
+
+[node name="terrain_roadStraight" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_0u64l")
+skeleton = NodePath("")

@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://qlcy20ytlsd7"]
+
+[ext_resource type="Script" path="res://Entities/command_console.gd" id="1_ljbhh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8slc"]
+bg_color = Color(0.0846899, 0.0846899, 0.0846899, 1)
+
+[node name="CommandConsole" type="Window"]
+title = "Command Console"
+initial_position = 2
+size = Vector2i(800, 450)
+min_size = Vector2i(200, 100)
+script = ExtResource("1_ljbhh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_k8slc")
+
+[node name="VSplitContainer" type="VSplitContainer" parent="CanvasLayer/Panel"]
+layout_mode = 2
+split_offset = 99999
+dragger_visibility = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Panel/VSplitContainer"]
+layout_mode = 2
+focus_mode = 2
+bbcode_enabled = true
+scroll_following = true
+selection_enabled = true
+deselect_on_focus_loss_enabled = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/VSplitContainer"]
+layout_mode = 2
+
+[node name="Target" type="Label" parent="CanvasLayer/Panel/VSplitContainer/HBoxContainer"]
+layout_mode = 2
+text = "Target"
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/Panel/VSplitContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+caret_blink = true
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="text_submitted" from="CanvasLayer/Panel/VSplitContainer/HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]

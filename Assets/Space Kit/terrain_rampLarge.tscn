@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=4 uid="uid://7vto1ojn7qw3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p4kyn"]
+resource_name = "rockDark"
+albedo_color = Color(0.853244, 0.644164, 0.549494, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02n8s"]
+resource_name = "rock"
+albedo_color = Color(0.959256, 0.746862, 0.656282, 1)
+metallic = 1.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_pqqa4"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 0.5, 2),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AgAAAAEABQADAAQA"),
+"name": "rockDark",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("AAD/////AAAAAP///z8AAAAAAAAAAAAA//////8/AAD///////8AAP//AAAAAAAA")
+}, {
+"aabb": AABB(-0.5, 0, -0.5, 1, 0.5, 2),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AgAAAAEAAQADAAIA"),
+"name": "rock",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAD/////AAAAAAAAAAAAAP///////wAA//8AAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_c7bqv"]
+resource_name = "terrain_rampLarge_Mesh terrain_rampLarge"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 0.5, 2),
+"attribute_data": PackedByteArray("AAAAAP9/AACqqtmG/38AAP//AABUVdmG"),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AgAAAAEABQADAAQA"),
+"material": SubResource("StandardMaterial3D_p4kyn"),
+"name": "rockDark",
+"primitive": 3,
+"uv_scale": Vector4(118.11, 37.3701, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("AAD//////78AAP///z//vwAAAAAAAP+///////8//7//////////v///AAAAAP+//38AAP9/AAD/fwAA/3////9/////f///")
+}, {
+"aabb": AABB(-0.5, 0, -0.5, 1, 0.5, 2),
+"attribute_data": PackedByteArray("//8AAP//H6oAAAAAAAAfqg=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AgAAAAEAAQADAAIA"),
+"material": SubResource("StandardMaterial3D_02n8s"),
+"name": "rock",
+"primitive": 3,
+"uv_scale": Vector4(39.3701, 122.132, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAD///////8AAAAAAAD///////////////8AAAAA////f+DH/3/gx/9/4Mf/f+DH")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_pqqa4")
+
+[node name="terrain_rampLarge" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_c7bqv")
+skeleton = NodePath("")

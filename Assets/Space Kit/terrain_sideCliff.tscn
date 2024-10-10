@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=4 uid="uid://b8q60jtcml3hg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ry57r"]
+resource_name = "rock"
+albedo_color = Color(0.959256, 0.746862, 0.656282, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cwm6j"]
+resource_name = "rockDark"
+albedo_color = Color(0.853244, 0.644164, 0.549494, 1)
+metallic = 1.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_r71k3"]
+_surfaces = [{
+"aabb": AABB(-3.60956e-16, -1.27856e-18, -0.5, 0.5, 0.5, 1),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AgAAAAEAAQADAAIAAwAEAAIABwAFAAYA"),
+"name": "rock",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAD/////AAAAAP///78AAP///////wAA/3/////fAAD//////78AAP9/AAD/HwAAAAAAAAAAAAD//wAAAAAAAA==")
+}, {
+"aabb": AABB(0, -1.27856e-18, -0.5, 0.5, 0.5, 0.875),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("BQADAAQABAAGAAUAAwAHAAgACAAEAAMAAQAAAAcABwADAAEAAwACAAEAAwAFAAIA"),
+"name": "rockDark",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("AAD//2zbAAD/f/////8AAP////9s2wAA/3///9q2AAD/fwAAkiQAAP////9IkgAA//8AAAAAAAAAAP//SJIAAAAAAAAAAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yi8dl"]
+resource_name = "terrain_sideCliff_Mesh terrain_sideCliff"
+_surfaces = [{
+"aabb": AABB(-3.60956e-16, -1.27856e-18, -0.5, 0.5, 0.5, 1),
+"attribute_data": PackedByteArray("/3////9/F8P//////7+L4f//F8P/v9Qq/39gDP//YAw="),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray("AgAAAAEAAQADAAIAAwAEAAIABwAFAAYA"),
+"material": SubResource("StandardMaterial3D_ry57r"),
+"name": "rock",
+"primitive": 3,
+"uv_scale": Vector4(39.3701, 41.3701, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAD//////78AAP///7//v/////////+//3/////f/7///////7//v/9/AAD/H/+/AAAAAAAA/7///wAAAAD/v////3////9/////f////3////9/////f////3////9/")
+}, {
+"aabb": AABB(0, -1.27856e-18, -0.5, 0.5, 0.5, 0.875),
+"attribute_data": PackedByteArray("/38Ex7OvQOdm3wTH/18AAFU1/ayqKgAAAAD9rP9/cSaqqm7TqkpxJlR1btP/f4yGs6/IpmbfjIY="),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("BQADAAQABAAGAAUACQAHAAgACAAKAAkAAQAAAAsACwAMAAEADAACAAEADAANAAIA"),
+"material": SubResource("StandardMaterial3D_cwm6j"),
+"name": "rockDark",
+"primitive": 3,
+"uv_scale": Vector4(52.8205, 39.0826, 0, 0),
+"vertex_count": 14,
+"vertex_data": PackedByteArray("AAD//2zb/7//f///////v/////9s2/+//3///9q2Xu7/fwAAkiRe7v////9Ikl7u//8AAAAAXu4AAP//SJJe7gAAAAAAAF7u/3///9q2Xu7/fwAAkiRe7gAA//9Ikv+//3///9q2/7//////SJL/v////3////9/////f9aH8dbWh/HW1ofx1taH8dYMqdcHDKnXBwyp1wcMqdcH////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_r71k3")
+
+[node name="terrain_sideCliff" type="MeshInstance3D"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_yi8dl")
+skeleton = NodePath("")

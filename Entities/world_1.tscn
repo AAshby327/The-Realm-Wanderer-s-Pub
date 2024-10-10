@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://wbqetnbuuxdn"]
+
+[ext_resource type="PackedScene" uid="uid://bo4bdus758biu" path="res://Entities/player.tscn" id="1_wckey"]
+[ext_resource type="PackedScene" uid="uid://qlcy20ytlsd7" path="res://Entities/command_console.tscn" id="2_phutv"]
+[ext_resource type="PackedScene" uid="uid://3mwmagjs13f8" path="res://Entities/prop.tscn" id="3_3sxg6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1dbmj"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_ckvai"]
+sky_material = SubResource("ProceduralSkyMaterial_1dbmj")
+
+[sub_resource type="Environment" id="Environment_8sh0g"]
+background_mode = 2
+sky = SubResource("Sky_ckvai")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uhih7"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gkm7l"]
+size = Vector2(100, 100)
+
+[node name="World1" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8sh0g")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_wckey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15364, 0)
+
+[node name="Floor Collider" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor Collider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_uhih7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor Collider"]
+mesh = SubResource("PlaneMesh_gkm7l")
+
+[node name="CommandConsole" parent="." instance=ExtResource("2_phutv")]
+visible = false
+
+[node name="Prop" parent="." instance=ExtResource("3_3sxg6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, -3.25155)
+highlight_color = Color(1, 1, 1, 1)
+select_color = Color(0, 0, 1, 1)
+
+[node name="Prop2" parent="." instance=ExtResource("3_3sxg6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33294, 0.125, -3.25155)
+highlight_color = Color(1, 1, 1, 1)
+select_color = Color(0, 0, 1, 1)
+
+[node name="Prop3" parent="." instance=ExtResource("3_3sxg6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.68202, 0.125, -3.25155)
+highlight_color = Color(1, 1, 1, 1)
+select_color = Color(0, 0, 1, 1)

@@ -1,0 +1,96 @@
+[gd_scene load_steps=6 format=4 uid="uid://b7ovaqk7b1ivw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r42e0"]
+resource_name = "rock"
+albedo_color = Color(0.959256, 0.746862, 0.656282, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jq2fb"]
+resource_name = "_defaultMat"
+albedo_color = Color(1, 1, 1, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wiv78"]
+resource_name = "rockDark"
+albedo_color = Color(0.853244, 0.644164, 0.549494, 1)
+metallic = 1.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lpwxc"]
+_surfaces = [{
+"aabb": AABB(-0.5, -7.5139e-33, -0.5, 1, 0.5, 1),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AgAAAAEAAwACAAEABgAEAAUABQAHAAYA"),
+"name": "rock",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/38AAP//AAD/fwAAAAAAAP//AAD//wAA//8AAAAAAAAAAP////8AAAAAAAAAAAAA/z//////AAD/PwAAAAAAAA==")
+}, {
+"aabb": AABB(7.45162e-09, -7.5139e-33, -0.5, 0.5, 0.5, 1),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AgAAAAEAAAABAAMA"),
+"name": "_defaultMat",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAD/////AAAAAAAA//8AAAAAAAAAAAAA//8AAP//AAA=")
+}, {
+"aabb": AABB(-0.25, -4.69619e-33, -0.5, 0.75, 0.5, 1),
+"format": 34896613377,
+"index_count": 9,
+"index_data": PackedByteArray("AgAAAAEAAQADAAIAAwAEAAIA"),
+"name": "rockDark",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 5,
+"vertex_data": PackedByteArray("AAD/////AAAAAAAAAAAAAFRV/////wAAVFUAAAAAAAD//wAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a751p"]
+resource_name = "terrain_sideEnd_Mesh terrain_sideEnd"
+_surfaces = [{
+"aabb": AABB(-0.5, -7.5139e-33, -0.5, 1, 0.5, 1),
+"attribute_data": PackedByteArray("/38x6P9/4CH//zHo///gIf//AAD//7nd/78AAP+/ud0="),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray("AgAAAAEAAwACAAEABgAEAAUABQAHAAYA"),
+"material": SubResource("StandardMaterial3D_r42e0"),
+"name": "rock",
+"primitive": 3,
+"uv_scale": Vector4(39.3701, 50.8205, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/38AAP///7//fwAAAAD/v///AAD///+///8AAAAA/78AAP///////wAAAAAAAP///z//////////PwAAAAD//////3////9/////f////3//fxrP/38az/9/Gs//fxrP")
+}, {
+"aabb": AABB(7.45162e-09, -7.5139e-33, -0.5, 0.5, 0.5, 1),
+"attribute_data": PackedByteArray("/3////9/YAz///////////9/YAz//2AM"),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AgAAAAEABQADAAQA"),
+"material": SubResource("StandardMaterial3D_jq2fb"),
+"name": "_defaultMat",
+"primitive": 3,
+"uv_scale": Vector4(39.3701, 41.3701, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("AAD/////svIAAAAA//+y8gAAAAAAALLyAAAAAP///////wAA/////wAA////////wUaCjcFGgo3BRoKNfKWB2nylgdp8pYHa")
+}, {
+"aabb": AABB(-0.25, -4.69619e-33, -0.5, 0.75, 0.5, 1),
+"attribute_data": PackedByteArray("s68AALOvud3/fwAA/3+53QAAmaKqKpAdVNWZog=="),
+"format": 34896613399,
+"index_count": 9,
+"index_data": PackedByteArray("AgAAAAEAAQADAAIABgAEAAUA"),
+"material": SubResource("StandardMaterial3D_wiv78"),
+"name": "rockDark",
+"primitive": 3,
+"uv_scale": Vector4(52.8205, 50.8205, 0, 0),
+"vertex_count": 7,
+"vertex_data": PackedByteArray("AAD///////8AAAAAAAD//1RV////////VFUAAAAA/////wAA//8p1lRV/////ynWVFUAAAAAKdb/fxrP/38az/9/Gs//fxrP47CsEuOwrBLjsKwS")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_lpwxc")
+
+[node name="terrain_sideEnd" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_a751p")
+skeleton = NodePath("")
