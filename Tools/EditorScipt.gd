@@ -4,29 +4,31 @@ extends EditorScript
 # Called when the script is executed (using File -> Run in Script Editor).
 func _run() -> void:
 	
-	var dir := "res://Assets/Space Kit/"
+	pass
 	
-	for file in DirAccess.get_files_at(dir):
-		
-		if file.get_extension() == "glb" or file.get_extension() == "gltf":
-			var packed_gltf := load(dir + file) as PackedScene
-			var scene = packed_gltf.instantiate()
-			
-			Utilities.change_ownership(scene, null)
-			
-			var main = scene
-			while main.get_child_count(true) == 1 and main.get_child(0) is Node3D:
-				main = main.get_child(0)
-			
-			main.get_parent().remove_child(main)
-			scene.free()
-			
-			if main is Node3D:
-				main.position = Vector3.ZERO
-			
-			var file_name := file.split(".")[0]
-			
-			Utilities.save_scene(main, dir + file_name + ".tscn")
+	#var dir := "res://Assets/Space Kit/"
+	#
+	#for file in DirAccess.get_files_at(dir):
+		#
+		#if file.get_extension() == "glb" or file.get_extension() == "gltf":
+			#var packed_gltf := load(dir + file) as PackedScene
+			#var scene = packed_gltf.instantiate()
+			#
+			#Utilities.change_ownership(scene, null)
+			#
+			#var main = scene
+			#while main.get_child_count(true) == 1 and main.get_child(0) is Node3D:
+				#main = main.get_child(0)
+			#
+			#main.get_parent().remove_child(main)
+			#scene.free()
+			#
+			#if main is Node3D:
+				#main.position = Vector3.ZERO
+			#
+			#var file_name := file.split(".")[0]
+			#
+			#Utilities.save_scene(main, dir + file_name + ".tscn")
 
 
 static func export_model_tscn(imported_model_path : String, tscn_path : String) -> Error:

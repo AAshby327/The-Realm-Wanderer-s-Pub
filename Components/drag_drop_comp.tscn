@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5lvjldqlekkv"]
+
+[ext_resource type="Script" path="res://Components/drag_drop_comp.gd" id="1_0t6x1"]
+
+[node name="DragDropComp" type="Area3D"]
+monitoring = false
+monitorable = false
+script = ExtResource("1_0t6x1")

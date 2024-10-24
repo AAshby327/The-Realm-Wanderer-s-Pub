@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://wbqetnbuuxdn"]
+[gd_scene load_steps=14 format=3 uid="uid://wbqetnbuuxdn"]
 
 [ext_resource type="PackedScene" uid="uid://bo4bdus758biu" path="res://Entities/player.tscn" id="1_wckey"]
 [ext_resource type="PackedScene" uid="uid://qlcy20ytlsd7" path="res://Entities/command_console.tscn" id="2_phutv"]
-[ext_resource type="PackedScene" uid="uid://3mwmagjs13f8" path="res://Entities/prop.tscn" id="3_3sxg6"]
+[ext_resource type="PackedScene" uid="uid://b2ef7epeo63lh" path="res://Assets/Space Kit/craft_racer.tscn" id="3_dq0oo"]
+[ext_resource type="Script" path="res://Components/mesh_highlight_comp.gd" id="4_nf4lx"]
+[ext_resource type="Script" path="res://Components/drag_drop_comp.gd" id="5_u7x5n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1dbmj"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -17,11 +19,20 @@ sky = SubResource("Sky_ckvai")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="BoxMesh" id="BoxMesh_h5kv0"]
+size = Vector3(5, 5, 5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7neqg"]
+points = PackedVector3Array(-2.5, -2.49951, -2.49951, 2.5, 2.49951, 2.49951, 2.5, -2.49951, 2.49951, 2.5, 2.49951, -2.49951, -2.5, 2.49951, 2.49951, 2.5, -2.49951, -2.49951, -2.5, -2.49951, 2.49951, -2.5, 2.49951, -2.49951)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_uhih7"]
 size = Vector3(100, 1, 100)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gkm7l"]
 size = Vector2(100, 100)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_t8tu4"]
+points = PackedVector3Array(0.570893, 0.4, 0.485305, 0.476935, 0.530436, 0.546465, -0.59051, 0, 0.493102, -0.1, 0.749351, 1.01226, 0.566825, 0.00841726, -0.120375, 0.444355, 0.1, 0.869385, -0.230097, 0.144796, -0.996648, -0.568626, 0.399338, -0.118574, 0.197159, 0.658899, -0.34701, 0.199732, 0.311233, -0.937375, -0.424725, 0.1, 0.869385, -0.0693913, -0.0160006, -0.642947, 0.566825, 0.399787, -0.120375, -0.581255, 0.4, 0.485305, -0.2, 0.676023, -0.250541, 0.123359, 0.755581, 1.02888, 0.580148, 1.11022e-16, 0.493102, -0.568626, 0.0138254, -0.118574, -0.230097, 0.305517, -1.02888, -0.230097, 0.530436, 1.02888, 0.198577, 0.165961, -0.902895, 0.2, 0.105835, 0.9386, 0.113466, 0.458675, -0.890192, 0.449632, 0.4, 0.879592, 0.199288, 0.69119, -0.26295, -0.455132, 0.530436, 0.546465, -0.429651, 0.4, 0.879592, -0.101556, 0.755581, 0.835912, -0.179619, 0.631345, -0.436127, 0.2, 0.19382, -0.9386, -0.121927, 0.515695, -0.759212, -0.204722, 0.11309, 0.9128)
 
 [node name="World1" type="Node3D"]
 
@@ -35,6 +46,15 @@ shadow_enabled = true
 [node name="Player" parent="." instance=ExtResource("1_wckey")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15364, 0)
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.91783, 2.34586, 0)
+mesh = SubResource("BoxMesh_h5kv0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_7neqg")
+
 [node name="Floor Collider" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor Collider"]
@@ -47,17 +67,27 @@ mesh = SubResource("PlaneMesh_gkm7l")
 [node name="CommandConsole" parent="." instance=ExtResource("2_phutv")]
 visible = false
 
-[node name="Prop" parent="." instance=ExtResource("3_3sxg6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, -3.25155)
-highlight_color = Color(1, 1, 1, 1)
-select_color = Color(0, 0, 1, 1)
+[node name="Prop" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.36057, -7.53559)
 
-[node name="Prop2" parent="." instance=ExtResource("3_3sxg6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33294, 0.125, -3.25155)
-highlight_color = Color(1, 1, 1, 1)
-select_color = Color(0, 0, 1, 1)
+[node name="craft_racer" parent="Prop" instance=ExtResource("3_dq0oo")]
 
-[node name="Prop3" parent="." instance=ExtResource("3_3sxg6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.68202, 0.125, -3.25155)
-highlight_color = Color(1, 1, 1, 1)
-select_color = Color(0, 0, 1, 1)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Prop"]
+shape = SubResource("ConvexPolygonShape3D_t8tu4")
+
+[node name="DragDropComp" type="Area3D" parent="Prop" node_paths=PackedStringArray("highlight_comp")]
+script = ExtResource("5_u7x5n")
+highlight_comp = NodePath("../MeshHighlightComp")
+highlight_color = Color(0.431373, 1, 0.376471, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Prop/DragDropComp"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+visible = false
+shape = SubResource("ConvexPolygonShape3D_t8tu4")
+
+[node name="MeshHighlightComp" type="Node" parent="Prop" node_paths=PackedStringArray("mesh_nodes")]
+script = ExtResource("4_nf4lx")
+mesh_nodes = [NodePath("../craft_racer")]
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.576, -0.6)

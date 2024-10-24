@@ -5,5 +5,3 @@
 
 [node name="Toy" instance=ExtResource("1_ok55p")]
 script = ExtResource("2_4oy1n")
-highlight_color = Color(1, 1, 1, 1)
-select_color = Color(0, 0, 1, 1)
