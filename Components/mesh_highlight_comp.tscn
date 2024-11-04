@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bv8rri8cvgjno"]
-
-[ext_resource type="Script" path="res://Components/mesh_highlight_comp.gd" id="1_g7ifx"]
-
-[node name="MeshHighlightComp" type="Node"]
-script = ExtResource("1_g7ifx")

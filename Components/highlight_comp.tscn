@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dw7143bog2nla"]
-
-[ext_resource type="Script" path="res://Components/highlight_comp.gd" id="1_j0ybq"]
-
-[node name="HighlightComp" type="Node"]
-script = ExtResource("1_j0ybq")

@@ -6,7 +6,7 @@
 var body : RigidBody3D
 var selecting_peer := 0 :
 	set(value):
-		selecting_peer = value
+		selecting_peer = value 
 		
 		_set_highlight_to_selecting_peer()
 
